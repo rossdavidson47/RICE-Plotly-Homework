@@ -218,23 +218,18 @@ function draw_table(subjectID){
 draw_table("940");
 
 ///LISTENER
-d3.select('#submit').on('click', optionChanged); 
-
-function optionChanged (selection){
-  console.log(selection);
-  // let subjectID = selection;
-  // //run function to update charts and tables
-  // draw_Bar_Chart(subjectID);
-  // draw_table(subjectID);
-  // draw_bubble_Chart(subjectID);
+/// don't know why I couldn't get the original optionChanged to work, it kept not recognizing
+dropdownMenu = d3.select("#selDataset");
+d3.selectAll("#selDataset").on("change", optionChanged);
+function optionChanged(){
+  subjectID = dropdownMenu.property("value");
+  //run function to update charts and tables
+  draw_Bar_Chart(subjectID);
+  draw_table(subjectID);
+  draw_bubble_Chart(subjectID);
 };
 
 
-
-
-
 });
-
-
 
 
